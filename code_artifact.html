@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студия by Михайлов СП | Элитная отделка кожей и шпоном</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        espresso: '#0D0907',
+                        darkChocolate: '#17110D',
+                        woodBg: '#211813',
+                        gold: '#D4AF37',
+                        goldLight: '#F3E5AB',
+                        goldDark: '#AA7C11',
+                        cognac: '#8B4513',
+                        cream: '#F5F0EB',
+                        warmGray: '#8A817C'
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'Georgia', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Custom Scrollbar & Luxury Visual Touches */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0D0907;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #211813;
+            border: 1px solid #D4AF37;
+            border-radius: 3px;
+        }
+        .gold-border-glow {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gold-border-glow:hover {
+            border-color: rgba(212, 175, 55, 0.9);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.18);
+        }
+        .bg-wood-pattern {
+            background-color: #0D0907;
+            background-image: radial-gradient(circle at 50% 50%, rgba(23, 17, 13, 0.8) 0%, rgba(13, 9, 7, 1) 100%),
+                              linear-gradient(to right, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 100%;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF0CA 0%, #D4AF37 50%, #9A7B1C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-button {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+            transition: all 0.3s ease;
+        }
+        .gold-button:hover {
+            background: linear-gradient(135deg, #EAD072 0%, #C5961B 100%);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+        .glass-panel {
+            background: rgba(23, 17, 13, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-espresso text-cream font-sans antialiased selection:bg-gold selection:text-espresso">
+
+    <header class="fixed w-full z-50 transition-all duration-300 glass-panel border-b border-gold/20" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-12 h-12 border border-gold/50 flex items-center justify-center rounded-full bg-darkChocolate group-hover:border-gold transition-colors">
+                    <span class="font-serif text-gold text-xl font-bold tracking-widest">МСП</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg tracking-[0.25em] text-cream uppercase font-semibold">Студия</span>
+                    <span class="text-[10px] tracking-[0.3em] text-gold uppercase">by Михайлов С.П.</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs tracking-[0.2em] font-medium uppercase text-cream/80">
+                <a href="#services" class="hover:text-gold transition-colors">Направления</a>
+                <a href="#materials" class="hover:text-gold transition-colors">Материалы</a>
+                <a href="#about" class="hover:text-gold transition-colors">О мастерской</a>
+                <a href="#gallery" class="hover:text-gold transition-colors">Галерея</a>
+                <a href="#reviews" class="hover:text-gold transition-colors">Отзывы</a>
+                <a href="#contacts" class="hover:text-gold transition-colors">Контакты</a>
+            </nav>
+
+            <!-- Call CTA -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="#order-form" class="gold-button text-espresso font-semibold px-6 py-3 rounded-sm text-xs tracking-widest uppercase flex items-center space-x-2">
+                    <i class="fa-solid fa-crown text-sm"></i>
+                    <span>Персональный расчет</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-gold text-2xl focus:outline-none" id="mobile-menu-btn" aria-label="Открыть меню">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="hidden md:hidden glass-panel border-t border-gold/20 px-6 py-6" id="mobile-menu">
+            <nav class="flex flex-col space-y-4 text-sm uppercase tracking-widest text-cream">
+                <a href="#services" class="mobile-link hover:text-gold py-1">Направления</a>
+                <a href="#materials" class="mobile-link hover:text-gold py-1">Материалы</a>
+                <a href="#about" class="mobile-link hover:text-gold py-1">О мастерской</a>
+                <a href="#gallery" class="mobile-link hover:text-gold py-1">Галерея</a>
+                <a href="#reviews" class="mobile-link hover:text-gold py-1">Отзывы</a>
+                <a href="#contacts" class="mobile-link hover:text-gold py-1">Контакты</a>
+                <a href="#order-form" class="gold-button text-espresso font-semibold text-center py-3 mt-4 rounded-sm">Персональный расчет</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden bg-wood-pattern">
+        <!-- Overlay Background Image with opacity -->
+        <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2000&auto=format&fit=crop');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-espresso/80 via-espresso/60 to-espresso z-0"></div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16">
+            <!-- Experience Badge -->
+            <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full border border-gold/40 bg-darkChocolate/80 mb-8 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                <span class="text-xs uppercase tracking-[0.25em] text-gold font-medium">30+ Лет Высшего Мастерства • Основано в 1993</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="font-serif text-3xl sm:text-5xl lg:text-7xl font-semibold tracking-wide text-cream leading-tight mb-6">
+                Безупречная Отделка <br/>
+                <span class="gold-gradient-text italic font-normal">Натуральной Кожей</span> & <span class="gold-gradient-text italic font-normal">Шпоном</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-cream/70 text-sm sm:text-base lg:text-lg leading-relaxed mb-10 font-light tracking-wide">
+                Индивидуальное переоборудование и отделка салонов эксклюзивных автомобилей, суперъяхт, бизнес-джетов, авторской мебели и премиальной акустики. Без компромиссов.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="#order-form" class="w-full sm:w-auto gold-button text-espresso font-semibold px-8 py-4 rounded-sm text-xs tracking-[0.2em] uppercase transition-all duration-300">
+                    Обсудить Ваш Проект
+                </a>
+                <a href="#gallery" class="w-full sm:w-auto border border-gold/40 hover:border-gold px-8 py-4 rounded-sm text-xs tracking-[0.2em] uppercase text-cream hover:text-gold transition-all duration-300 bg-darkChocolate/50 backdrop-blur-sm">
+                    Смотреть Работы
+                </a>
+            </div>
+
+            <!-- Trust Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 pt-12 border-t border-gold/15">
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl lg:text-4xl text-gold font-bold">30+</span>
+                    <span class="text-xs text-cream/60 tracking-wider uppercase mt-1">Лет безупречной работы</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl lg:text-4xl text-gold font-bold">100%</span>
+                    <span class="text-xs text-cream/60 tracking-wider uppercase mt-1">Ручной раскрой & подбор</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl lg:text-4xl text-gold font-bold">500+</span>
+                    <span class="text-xs text-cream/60 tracking-wider uppercase mt-1">Реализованных проектов</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl lg:text-4xl text-gold font-bold">∞</span>
+                    <span class="text-xs text-cream/60 tracking-wider uppercase mt-1">Гарантия на материалы</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-darkChocolate relative border-t border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Направления Работы</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-cream font-semibold mt-3 mb-4">Сферы Нашего Мастерства</h2>
+                <div class="w-16 h-[1px] bg-gold mx-auto opacity-60"></div>
+                <p class="text-cream/70 text-sm mt-4 tracking-wide font-light">Каждый заказ выполняется индивидуально под конкретный борт, автомобиль или предмет интерьера с ювелирной точностью.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Automobiles -->
+                <div class="glass-panel p-8 rounded-sm gold-border-glow group relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors"></div>
+                    <div>
+                        <div class="w-14 h-14 border border-gold/30 rounded-sm flex items-center justify-center text-gold text-2xl mb-6 bg-espresso">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-cream font-semibold mb-3">Автомобили Люкс-Класса</h3>
+                        <p class="text-cream/60 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                            Полный перешив салонов премиальных марок (Rolls-Royce, Bentley, Maybach, Porsche). Инкрустация панели приборов и торпедо каповым орехом, тисненая натуральная кожа Connolly и Nappa, кастомная анатомия сидений.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-gold/80 space-y-2 border-t border-gold/10 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Кастомная перфорация и кант</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Отделка рулей и консолей шпоном</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Yachts -->
+                <div class="glass-panel p-8 rounded-sm gold-border-glow group relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 border border-gold/30 rounded-sm flex items-center justify-center text-gold text-2xl mb-6 bg-espresso">
+                            <i class="fa-solid fa-ship"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-cream font-semibold mb-3">Яхты и Катера</h3>
+                        <p class="text-cream/60 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                            Отделка кают, ходовых рубленных зон и рулевых колес. Применение морской высокостойкой кожи, обработанной тиковой древесины, редкого морения и палисандра, устойчивых к морскому климату и соленой воде.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-gold/80 space-y-2 border-t border-gold/10 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Морская влагозащищенная кожа</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Наборный тиковый и тик-палисандровый шпон</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Jets -->
+                <div class="glass-panel p-8 rounded-sm gold-border-glow group relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 border border-gold/30 rounded-sm flex items-center justify-center text-gold text-2xl mb-6 bg-espresso">
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-cream font-semibold mb-3">Бизнес-Авиация</h3>
+                        <p class="text-cream/60 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                            Интерьеры частных самолетов и вертолетов. Перетяжка кресел, отделка перегородок, откидных столиков и подлокотников ценным шпоном с соблюдением международных стандартов огнестойкости и сертификации.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-gold/80 space-y-2 border-t border-gold/10 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Сертифицированная авиакожа</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Облегченные ламинированные панели</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Interior Furniture -->
+                <div class="glass-panel p-8 rounded-sm gold-border-glow group relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 border border-gold/30 rounded-sm flex items-center justify-center text-gold text-2xl mb-6 bg-espresso">
+                            <i class="fa-solid fa-couch"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-cream font-semibold mb-3">Авторская Мебель & Декор</h3>
+                        <p class="text-cream/60 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                            Обтяжка эксклюзивных диванов, изголовей кроватей, комодов, стеновых панелей и кабинетов руководителя. Использование плотной телячьей кожи, замши Alcantara и инкрустации золотой нитью.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-gold/80 space-y-2 border-t border-gold/10 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Кожаные стеновые панели</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Фасады из зебрано и капового ореха</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Audio Equipment -->
+                <div class="glass-panel p-8 rounded-sm gold-border-glow group relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 border border-gold/30 rounded-sm flex items-center justify-center text-gold text-2xl mb-6 bg-espresso">
+                            <i class="fa-solid fa-compact-disc"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-cream font-semibold mb-3">Hi-End Аудиоаппаратура</h3>
+                        <p class="text-cream/60 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                            Кастомная отделка акустических колонок, виниловых проигрывателей, усилителей и музыкальных систем. Шпонирование ценными деталями, кожаные вставки для идеальной гашения вибраций и безупречного вида.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-gold/80 space-y-2 border-t border-gold/10 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Ручной подбор рисунка шпона</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Рояльный многослойный лак</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6: Restoration & Custom -->
+                <div class="glass-panel p-8 rounded-sm gold-border-glow group relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 border border-gold/30 rounded-sm flex items-center justify-center text-gold text-2xl mb-6 bg-espresso">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <h3 class="font-serif text-xl text-cream font-semibold mb-3">Реставрация и Коллекции</h3>
+                        <p class="text-cream/60 text-xs sm:text-sm leading-relaxed mb-6 font-light">
+                            Восстановление аутентичности классических ретро-автомобилей, антикварных интерьеров и частных коллекционных предметов. Соблюдение исторической точности швов и структуры древесины.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-gold/80 space-y-2 border-t border-gold/10 pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Историческая достоверность</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-[10px] mr-2 text-gold"></i> Ручная выделка и патинирование</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="materials" class="py-24 bg-espresso relative border-t border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Исключительные Компоненты</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-cream font-semibold mt-3 mb-4">Материалы Высочайшей Пробы</h2>
+                <div class="w-16 h-[1px] bg-gold mx-auto opacity-60"></div>
+                <p class="text-cream/70 text-sm mt-4 font-light">Мы работаем только с отобранным сырьем, имеющим безупречную фактуру, запах и тактильные свойства.</p>
+            </div>
+
+            <!-- Material Tabs -->
+            <div class="flex justify-center space-x-4 mb-12">
+                <button class="material-tab-btn active px-6 py-2.5 rounded-sm text-xs tracking-widest uppercase border border-gold bg-gold text-espresso font-semibold transition-all" data-tab="leather">
+                    Премиальная Кожа
+                </button>
+                <button class="material-tab-btn px-6 py-2.5 rounded-sm text-xs tracking-widest uppercase border border-gold/30 text-cream hover:border-gold transition-all" data-tab="wood">
+                    Ценный Шпон & Дерево
+                </button>
+            </div>
+
+            <!-- Leather Content Grid -->
+            <div id="tab-leather" class="material-tab-content grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-6 rounded-sm border border-gold/20 flex flex-col">
+                    <div class="h-48 rounded-sm overflow-hidden mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=800&auto=format&fit=crop" alt="Кожа Nappa" class="w-full h-full object-cover">
+                        <span class="absolute bottom-2 right-2 bg-espresso/80 text-gold text-[10px] px-2 py-1 tracking-widest uppercase">Италия / Германия</span>
+                    </div>
+                    <h3 class="font-serif text-lg text-gold font-semibold mb-2">Натуральная Кожа Nappa & Connolly</h3>
+                    <p class="text-cream/70 text-xs leading-relaxed font-light">Мягчайшая кожа с сохраненной естественной лицевой поверхностью. Износостойкая, воздухопроницаемая, обладает неповторимым ароматом элитной мастерской.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-sm border border-gold/20 flex flex-col">
+                    <div class="h-48 rounded-sm overflow-hidden mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1530982011887-3cc11cc85693?q=80&w=800&auto=format&fit=crop" alt="Алькантара" class="w-full h-full object-cover">
+                        <span class="absolute bottom-2 right-2 bg-espresso/80 text-gold text-[10px] px-2 py-1 tracking-widest uppercase">Италия</span>
+                    </div>
+                    <h3 class="font-serif text-lg text-gold font-semibold mb-2">Оригинальная Alcantara®</h3>
+                    <p class="text-cream/70 text-xs leading-relaxed font-light">Замшевая фактура премиум-класса. Не нагревается летом и не остывает зимой. Идеальна для отделки потолков, стоек и центральных вставок кресел.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-sm border border-gold/20 flex flex-col">
+                    <div class="h-48 rounded-sm overflow-hidden mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop" alt="Экзотическая кожа" class="w-full h-full object-cover">
+                        <span class="absolute bottom-2 right-2 bg-espresso/80 text-gold text-[10px] px-2 py-1 tracking-widest uppercase">Эксклюзив</span>
+                    </div>
+                    <h3 class="font-serif text-lg text-gold font-semibold mb-2">Экзотические Породы Кожи</h3>
+                    <p class="text-cream/70 text-xs leading-relaxed font-light">Кожа крокодила, питона и страуса. Используется для акцентных вставок, персонализированных элементов консоли, подлокотников и атрибутов интерьера.</p>
+                </div>
+            </div>
+
+            <!-- Wood Content Grid (Hidden by default) -->
+            <div id="tab-wood" class="material-tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-6 rounded-sm border border-gold/20 flex flex-col">
+                    <div class="h-48 rounded-sm overflow-hidden mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?q=80&w=800&auto=format&fit=crop" alt="Каповый Орех" class="w-full h-full object-cover">
+                        <span class="absolute bottom-2 right-2 bg-espresso/80 text-gold text-[10px] px-2 py-1 tracking-widest uppercase">Классика Ретро & Люкс</span>
+                    </div>
+                    <h3 class="font-serif text-lg text-gold font-semibold mb-2">Каповый Орех и Махагони</h3>
+                    <p class="text-cream/70 text-xs leading-relaxed font-light">Редчайшие наросты древесины с гипнотическим сложным рисунком. Традиционный выбор Rolls-Royce и закрытых яхтенных верфей.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-sm border border-gold/20 flex flex-col">
+                    <div class="h-48 rounded-sm overflow-hidden mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" alt="Зебрано и Палисандр" class="w-full h-full object-cover">
+                        <span class="absolute bottom-2 right-2 bg-espresso/80 text-gold text-[10px] px-2 py-1 tracking-widest uppercase">Африка & Южная Америка</span>
+                    </div>
+                    <h3 class="font-serif text-lg text-gold font-semibold mb-2">Зебрано, Палисандр & Венге</h3>
+                    <p class="text-cream/70 text-xs leading-relaxed font-light">Контрастные полосатые и глубокие темные текстуры для современных динамичных интерьеров суперкаров и ультрасовременных кают.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-sm border border-gold/20 flex flex-col">
+                    <div class="h-48 rounded-sm overflow-hidden mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=800&auto=format&fit=crop" alt="Мореный Дуб" class="w-full h-full object-cover">
+                        <span class="absolute bottom-2 right-2 bg-espresso/80 text-gold text-[10px] px-2 py-1 tracking-widest uppercase">Возраст > 1000 лет</span>
+                    </div>
+                    <h3 class="font-serif text-lg text-gold font-semibold mb-2">Мореный Дуб & Инкрустация</h3>
+                    <p class="text-cream/70 text-xs leading-relaxed font-light">Древесина, пролежавшая в толще воды столетия. Мы комбинируем её с инкрустацией латунью, золотой нитью и гербовыми монограммами.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-wood-pattern relative border-t border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Image Composition -->
+                <div class="relative">
+                    <div class="border border-gold/30 p-2 rounded-sm bg-darkChocolate/60 backdrop-blur-sm">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1000&auto=format&fit=crop" alt="Мастер за работой со шпоном" class="w-full h-[450px] object-cover rounded-sm">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 glass-panel p-6 hidden sm:block max-w-xs rounded-sm gold-border-glow">
+                        <div class="font-serif text-gold text-2xl font-bold mb-1">Сергей Петрович</div>
+                        <div class="text-[11px] text-cream/70 uppercase tracking-widest mb-2">Основатель & Главный Мастер</div>
+                        <p class="text-xs text-cream/60 italic font-light">«Мы не просто перешиваем салон, мы дарим объекту душу и характер, сохраняющиеся десятилетиями.»</p>
+                    </div>
+                </div>
+
+                <!-- Right Text Content -->
+                <div>
+                    <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Наследие & Философия</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-cream font-semibold mt-2 mb-6">Более 30 Лет На Вершине Отрасли</h2>
+                    
+                    <div class="space-y-4 text-cream/80 text-xs sm:text-sm leading-relaxed font-light">
+                        <p>
+                            Мы были в числе первых, кто привез культуру индивидуальной отделки премиальной кожей и шпоном в Россию еще в начале 1990-х годов. За это время через руки наших мастеров прошли сотни редчайших автомобилей, роскошных яхт, бизнес-джетов и эксклюзивных предметов интерьера.
+                        </p>
+                        <p>
+                            Каждый заказ изготавливается strictly на заказ. Кожу кроит и шьет опытная швея с высшим разрядом, а со шпоном и редким деревом работает мастер, знающий структуру и направление волокон до последней жилки.
+                        </p>
+                        <p class="text-gold italic font-normal border-l-2 border-gold pl-4 py-1">
+                            Они работают в сплоченной команде много лет и понимают тончайшие нюансы каждого проекта без лишних слов.
+                        </p>
+                        <p>
+                            Это дорогая и трудоемкая работа — и мы этого не скрываем. Мы используем аутентичные материалы высшего сорта, чтобы и через 10, и через 20 лет ваш салон выглядел так же безукоризненно, как и в день передачи.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 flex flex-wrap items-center gap-6">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-award text-gold text-2xl"></i>
+                            <span class="text-xs text-cream/90 uppercase tracking-wider font-medium">Бескомпромиссный<br/>Контроль Качества</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-user-shield text-gold text-2xl"></i>
+                            <span class="text-xs text-cream/90 uppercase tracking-wider font-medium">Конфиденциальность<br/>Всех Клиентов</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-darkChocolate relative border-t border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Портфолио Искусства</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-cream font-semibold mt-3 mb-4">Галерея Реализованных Проектов</h2>
+                <div class="w-16 h-[1px] bg-gold mx-auto opacity-60"></div>
+            </div>
+
+            <!-- Gallery Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="gallery-filter-btn active px-5 py-2 rounded-sm text-xs tracking-widest uppercase border border-gold bg-gold text-espresso font-semibold" data-filter="all">Все</button>
+                <button class="gallery-filter-btn px-5 py-2 rounded-sm text-xs tracking-widest uppercase border border-gold/30 text-cream hover:border-gold" data-filter="auto">Автомобили</button>
+                <button class="gallery-filter-btn px-5 py-2 rounded-sm text-xs tracking-widest uppercase border border-gold/30 text-cream hover:border-gold" data-filter="yacht">Яхты & Авиация</button>
+                <button class="gallery-filter-btn px-5 py-2 rounded-sm text-xs tracking-widest uppercase border border-gold/30 text-cream hover:border-gold" data-filter="interior">Мебель & Декор</button>
+                <button class="gallery-filter-btn px-5 py-2 rounded-sm text-xs tracking-widest uppercase border border-gold/30 text-cream hover:border-gold" data-filter="audio">Аудиосистемы</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+                
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item auto glass-panel rounded-sm overflow-hidden gold-border-glow group cursor-pointer" onclick="openModal('Салон Bentley Continental GT', 'Шпон капового ореха, натуральная коньячная кожа Nappa с перфорацией и ромбовидной отсрочкой.', 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1200&auto=format&fit=crop')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop" alt="Салон Bentley" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 left-3 bg-espresso/80 text-gold text-[10px] px-2.5 py-1 uppercase tracking-widest border border-gold/30">Автомобили</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-lg text-cream font-semibold mb-1 group-hover:text-gold transition-colors">Bentley Continental GT</h3>
+                        <p class="text-xs text-cream/60 font-light">Каповый орех & Коньячная кожа Nappa</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item yacht glass-panel rounded-sm overflow-hidden gold-border-glow group cursor-pointer" onclick="openModal('Интерьер Ходовой Рубки Катера Riva', 'Отделка натуральным тиком, кастомными латунными молдингами и темно-синей штормовой кожей.', 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?q=80&w=1200&auto=format&fit=crop')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?q=80&w=800&auto=format&fit=crop" alt="Интерьер Яхты" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 left-3 bg-espresso/80 text-gold text-[10px] px-2.5 py-1 uppercase tracking-widest border border-gold/30">Яхты</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-lg text-cream font-semibold mb-1 group-hover:text-gold transition-colors">Яхта Riva Classico</h3>
+                        <p class="text-xs text-cream/60 font-light">Тиковый массив, латунь & Влагостойкая кожа</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item interior glass-panel rounded-sm overflow-hidden gold-border-glow group cursor-pointer" onclick="openModal('Рабочий Кабинет & Комод', 'Перетяжка фасадов комода натуральной кожей страуса с инкрустацией зебрано.', 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1200&auto=format&fit=crop')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=800&auto=format&fit=crop" alt="Интерьер кабинета" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 left-3 bg-espresso/80 text-gold text-[10px] px-2.5 py-1 uppercase tracking-widest border border-gold/30">Мебель</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-lg text-cream font-semibold mb-1 group-hover:text-gold transition-colors">Авторский Комод & Панели</h3>
+                        <p class="text-xs text-cream/60 font-light">Шпон Зебрано & Кожаная отделка</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item audio glass-panel rounded-sm overflow-hidden gold-border-glow group cursor-pointer" onclick="openModal('Hi-End Акустика Bang & Olufsen Custom', 'Перетяжка корпуса акустики матовой кожаной текстурой и фронтом из шпона палисандра.', 'https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=1200&auto=format&fit=crop')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=800&auto=format&fit=crop" alt="Акустические колонки" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 left-3 bg-espresso/80 text-gold text-[10px] px-2.5 py-1 uppercase tracking-widest border border-gold/30">Аудио</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-lg text-cream font-semibold mb-1 group-hover:text-gold transition-colors">Акустическая Система Custom</h3>
+                        <p class="text-xs text-cream/60 font-light">Палисандровый шпон & Чёрная кожа Nappa</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item yacht glass-panel rounded-sm overflow-hidden gold-border-glow group cursor-pointer" onclick="openModal('Салон Бизнес-Джета Bombardier', 'Облегченные потолочные панели из замши Alcantara и откидные столики из махагони.', 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1200&auto=format&fit=crop')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=800&auto=format&fit=crop" alt="Салон джета" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 left-3 bg-espresso/80 text-gold text-[10px] px-2.5 py-1 uppercase tracking-widest border border-gold/30">Авиация</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-lg text-cream font-semibold mb-1 group-hover:text-gold transition-colors">Bombardier Global Express</h3>
+                        <p class="text-xs text-cream/60 font-light">Шпон Махагони & Авиационная Alcantara</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item auto glass-panel rounded-sm overflow-hidden gold-border-glow group cursor-pointer" onclick="openModal('Реставрация Mercedes-Benz 300SL Gullwing', 'Полная аутентичная перетяжка салона гладкой бордовой кожей по оригинальным лекалам 1955 года.', 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1200&auto=format&fit=crop')">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=800&auto=format&fit=crop" alt="Mercedes Klassik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 left-3 bg-espresso/80 text-gold text-[10px] px-2.5 py-1 uppercase tracking-widest border border-gold/30">Авто классика</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-lg text-cream font-semibold mb-1 group-hover:text-gold transition-colors">Mercedes 300SL Gullwing</h3>
+                        <p class="text-xs text-cream/60 font-light">Историческая реставрация кожей Бордо</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-24 bg-espresso relative border-t border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Репутация & Доверие</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-cream font-semibold mt-3 mb-4">Отзывы Довольных Владельцев</h2>
+                <div class="w-16 h-[1px] bg-gold mx-auto opacity-60"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="glass-panel p-8 rounded-sm border border-gold/20 flex flex-col justify-between relative">
+                    <div class="text-gold text-4xl font-serif mb-4 opacity-50">“</div>
+                    <p class="text-xs sm:text-sm text-cream/80 italic font-light leading-relaxed mb-6">
+                        Перешивали полностью салон моей яхты. Требования были колоссальные — морская среда, постоянное солнце. Сергей Петрович лично подбирал партии кожи и тика. Прошло 4 года — состояние как в первый день выдачи!
+                    </p>
+                    <div class="border-t border-gold/10 pt-4 flex items-center justify-between">
+                        <div>
+                            <div class="font-serif text-gold text-sm font-semibold">Александр В.</div>
+                            <div class="text-[10px] text-cream/50 uppercase tracking-wider">Владелец Yacht Club Moscow</div>
+                        </div>
+                        <div class="text-gold text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-panel p-8 rounded-sm border border-gold/20 flex flex-col justify-between relative">
+                    <div class="text-gold text-4xl font-serif mb-4 opacity-50">“</div>
+                    <p class="text-xs sm:text-sm text-cream/80 italic font-light leading-relaxed mb-6">
+                        Заказывал отделку каповым орехом и перфорированной Nappa для своего Maybach. Работа уровня фабрики Goodwood в Англии. Каждая жилка шпона сходится на стыках. Лучшая ателье-студия в стране.
+                    </p>
+                    <div class="border-t border-gold/10 pt-4 flex items-center justify-between">
+                        <div>
+                            <div class="font-serif text-gold text-sm font-semibold">Дмитрий К.</div>
+                            <div class="text-[10px] text-cream/50 uppercase tracking-wider">Предприниматель</div>
+                        </div>
+                        <div class="text-gold text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-panel p-8 rounded-sm border border-gold/20 flex flex-col justify-between relative">
+                    <div class="text-gold text-4xl font-serif mb-4 opacity-50">“</div>
+                    <p class="text-xs sm:text-sm text-cream/80 italic font-light leading-relaxed mb-6">
+                        Обтягивали эксклюзивный гарнитур из диванов и стеновых панелей для загородной резиденции. Мастера понимают материалы буквально с закрытыми глазами. Очень высокий статус исполнения.
+                    </p>
+                    <div class="border-t border-gold/10 pt-4 flex items-center justify-between">
+                        <div>
+                            <div class="font-serif text-gold text-sm font-semibold">Елена Б.</div>
+                            <div class="text-[10px] text-cream/50 uppercase tracking-wider">Архитектурное бюро</div>
+                        </div>
+                        <div class="text-gold text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order-form" class="py-24 bg-wood-pattern relative border-t border-gold/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-8 sm:p-12 rounded-sm gold-border-glow relative">
+                
+                <div class="text-center mb-10">
+                    <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Персональный Проект</span>
+                    <h2 class="font-serif text-2xl sm:text-4xl text-cream font-semibold mt-2 mb-3">Оставьте Заявку На Расчет</h2>
+                    <p class="text-cream/70 text-xs sm:text-sm font-light">Выберите параметры вашего объекта, и Сергей Петрович лично свяжется с вами для обсуждения деталей.</p>
+                </div>
+
+                <form id="calc-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    
+                    <!-- Step 1: Object Selection -->
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gold mb-3 font-medium">1. Тип объекта отделки</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="object_type" value="Автомобиль" class="peer hidden" checked>
+                                <div class="p-3 border border-gold/30 rounded-sm text-center text-xs text-cream peer-checked:border-gold peer-checked:bg-gold/20 peer-checked:text-gold transition-all">
+                                    <i class="fa-solid fa-car block text-base mb-1"></i>
+                                    Автомобиль
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="object_type" value="Яхта / Катер" class="peer hidden">
+                                <div class="p-3 border border-gold/30 rounded-sm text-center text-xs text-cream peer-checked:border-gold peer-checked:bg-gold/20 peer-checked:text-gold transition-all">
+                                    <i class="fa-solid fa-ship block text-base mb-1"></i>
+                                    Яхта / Катер
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="object_type" value="Самолет / Джет" class="peer hidden">
+                                <div class="p-3 border border-gold/30 rounded-sm text-center text-xs text-cream peer-checked:border-gold peer-checked:bg-gold/20 peer-checked:text-gold transition-all">
+                                    <i class="fa-solid fa-plane block text-base mb-1"></i>
+                                    Бизнес-Джет
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="object_type" value="Мебель" class="peer hidden">
+                                <div class="p-3 border border-gold/30 rounded-sm text-center text-xs text-cream peer-checked:border-gold peer-checked:bg-gold/20 peer-checked:text-gold transition-all">
+                                    <i class="fa-solid fa-couch block text-base mb-1"></i>
+                                    Элитная Мебель
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="object_type" value="Аудиоаппаратура" class="peer hidden">
+                                <div class="p-3 border border-gold/30 rounded-sm text-center text-xs text-cream peer-checked:border-gold peer-checked:bg-gold/20 peer-checked:text-gold transition-all">
+                                    <i class="fa-solid fa-compact-disc block text-base mb-1"></i>
+                                    Аудиоаппаратура
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="object_type" value="Другое / Коллекция" class="peer hidden">
+                                <div class="p-3 border border-gold/30 rounded-sm text-center text-xs text-cream peer-checked:border-gold peer-checked:bg-gold/20 peer-checked:text-gold transition-all">
+                                    <i class="fa-solid fa-gem block text-base mb-1"></i>
+                                    Эксклюзив
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Preferred Materials -->
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gold mb-3 font-medium">2. Предпочитаемые материалы</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="materials" value="Премиальная кожа" class="peer hidden" checked>
+                                <div class="p-3 border border-gold/30 rounded-sm text-center text-xs text-cream peer-checked:border-gold peer-checked:bg-gold/20 peer-checked:text-gold transition-all">
+                                    Натуральная Кожа
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="materials" value="Ценный шпон дерева" class="peer hidden" checked>
+                                <div class="p-3 border border-gold/30 rounded-sm text-center text-xs text-cream peer-checked:border-gold peer-checked:bg-gold/20 peer-checked:text-gold transition-all">
+                                    Ценный Шпон Дерева
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="checkbox" name="materials" value="Замша Alcantara" class="peer hidden">
+                                <div class="p-3 border border-gold/30 rounded-sm text-center text-xs text-cream peer-checked:border-gold peer-checked:bg-gold/20 peer-checked:text-gold transition-all">
+                                    Alcantara / Экзотика
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Contact details -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-wider text-cream/70 mb-1">Ваше Имя</label>
+                            <input type="text" required placeholder="Константин" class="w-full bg-espresso border border-gold/30 rounded-sm px-4 py-3 text-xs text-cream focus:outline-none focus:border-gold transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-wider text-cream/70 mb-1">Телефон / WhatsApp / Telegram</label>
+                            <input type="tel" required placeholder="+7 (999) 000-00-00" class="w-full bg-espresso border border-gold/30 rounded-sm px-4 py-3 text-xs text-cream focus:outline-none focus:border-gold transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] uppercase tracking-wider text-cream/70 mb-1">Детали или комментарий к проекту (по желанию)</label>
+                        <textarea rows="3" placeholder="Укажите модель автомобиля, тип яхты или ваши пожелания по древесине/цвету кожи..." class="w-full bg-espresso border border-gold/30 rounded-sm px-4 py-3 text-xs text-cream focus:outline-none focus:border-gold transition-colors"></textarea>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button type="submit" class="w-full sm:w-auto gold-button text-espresso font-bold px-10 py-4 rounded-sm text-xs tracking-[0.25em] uppercase">
+                            Запросить Консультацию
+                        </button>
+                        <p class="text-[10px] text-cream/40 mt-3">Ваши данные строго конфиденциальны и не передаются третьим лицам.</p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts" class="bg-espresso text-cream border-t border-gold/20 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Brand Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 border border-gold/50 flex items-center justify-center rounded-full bg-darkChocolate">
+                            <span class="font-serif text-gold text-base font-bold">МСП</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-serif text-base tracking-[0.2em] text-cream uppercase font-semibold">Студия</span>
+                            <span class="text-[9px] tracking-[0.3em] text-gold uppercase">by Михайлов С.П.</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-cream/60 leading-relaxed font-light mb-4">
+                        Индивидуальная отделка премиальной кожей и ценным шпоном. Более 30 лет бескомпромиссного качества для избранных объектов.
+                    </p>
+                </div>
+
+                <!-- Contacts -->
+                <div>
+                    <h4 class="font-serif text-gold text-sm tracking-widest uppercase mb-4">Контакты Мастерской</h4>
+                    <ul class="space-y-3 text-xs text-cream/80 font-light">
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-phone text-gold"></i>
+                            <span>+7 (926) 000-00-00 (Сергей Петрович)</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-gold"></i>
+                            <span>mikhailov.studio@luxury.ru</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-location-dot text-gold"></i>
+                            <span>Москва, Репина / Закрытый показ по записи</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Messengers & Schedule -->
+                <div>
+                    <h4 class="font-serif text-gold text-sm tracking-widest uppercase mb-4">Прямая Связь</h4>
+                    <p class="text-xs text-cream/60 mb-4 font-light">Для быстрых вопросов и отправки эскизов/фотографий вы можете написать нам в мессенджеры:</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 border border-gold/30 rounded-sm flex items-center justify-center text-gold hover:bg-gold hover:text-espresso transition-colors">
+                            <i class="fa-brands fa-telegram text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 border border-gold/30 rounded-sm flex items-center justify-center text-gold hover:bg-gold hover:text-espresso transition-colors">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gold/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-cream/40 font-light">
+                <p>© 1993–2026 Студия by Михайлов СП. Все права защищены.</p>
+                <p class="mt-2 sm:mt-0">Тяжелый люкс • Безупречный стиль • Качество на годы</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Image Lightbox Modal -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-espresso/90 backdrop-blur-md">
+        <div class="glass-panel max-w-3xl w-full rounded-sm overflow-hidden border border-gold/40 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gold text-2xl hover:text-cream transition-colors z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="max-h-[70vh] overflow-hidden">
+                <img id="modal-img" src="" alt="Детали" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <h3 id="modal-title" class="font-serif text-xl text-gold font-semibold mb-2"></h3>
+                <p id="modal-desc" class="text-xs text-cream/80 font-light leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Confirmation Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-espresso/90 backdrop-blur-md">
+        <div class="glass-panel max-w-md w-full p-8 rounded-sm border border-gold text-center relative">
+            <div class="w-16 h-16 border border-gold rounded-full flex items-center justify-center text-gold text-2xl mx-auto mb-4 bg-darkChocolate">
+                <i class="fa-solid fa-crown"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-gold font-semibold mb-2">Заявка Принята</h3>
+            <p class="text-xs text-cream/80 leading-relaxed font-light mb-6">
+                Благодарим за обращение. Сергей Петрович ознакомится с деталями вашего проекта и свяжется с вами в ближайшее время.
+            </p>
+            <button onclick="closeSuccessModal()" class="gold-button text-espresso font-bold px-8 py-3 rounded-sm text-xs tracking-widest uppercase">
+                Закрыть
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Material Tabs Switcher
+        const tabBtns = document.querySelectorAll('.material-tab-btn');
+        const tabContents = document.querySelectorAll('.material-tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.getAttribute('data-tab');
+
+                tabBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-gold', 'text-espresso', 'font-semibold');
+                    b.classList.add('text-cream', 'border-gold/30');
+                });
+
+                btn.classList.add('active', 'bg-gold', 'text-espresso', 'font-semibold');
+                btn.classList.remove('text-cream', 'border-gold/30');
+
+                tabContents.forEach(content => {
+                    if (content.id === `tab-${targetTab}`) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Gallery Filtering
+        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-gold', 'text-espresso', 'font-semibold');
+                    b.classList.add('text-cream', 'border-gold/30');
+                });
+
+                btn.classList.add('active', 'bg-gold', 'text-espresso', 'font-semibold');
+                btn.classList.remove('text-cream', 'border-gold/30');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox Modal Functions
+        function openModal(title, desc, imgSrc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('gallery-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('gallery-modal').classList.add('hidden');
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('success-modal').classList.remove('hidden');
+            event.target.reset();
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        // Close Modal on Overlay Click
+        window.onclick = function(event) {
+            const galleryModal = document.getElementById('gallery-modal');
+            const successModal = document.getElementById('success-modal');
+            if (event.target === galleryModal) {
+                closeModal();
+            }
+            if (event.target === successModal) {
+                closeSuccessModal();
+            }
+        };
+    </script>
+</body>
+</html>
